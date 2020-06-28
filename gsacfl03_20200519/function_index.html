@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>function</title>
+</head>
+<body>
+  <script>
+    // function test(){
+    //   test = 
+    // };
+    // function(test); //定義したfunctionは実行をする。
+
+    // 引数　戻り値
+    function add(a, b){
+      const total = a, b;
+      return total;
+    }
+
+    const sum = add(10, 20);
+    console.log(sum);
+
+    //参考 function(x)
+    // x(f) = 
+
+    // functionの記載方法
+
+    const addA = (a, b) =>{
+      return a + b;
+    }
+
+    const sum = addA(1,10);
+    return 
+
+  
+    // 手順
+    function generatre(min, max){
+      const rand = Math.floor(Math.random() * (max - min + 1) +min);
+      return rand;
+    }
+
+    const result = generatre(1,10);
+    console.log(result);
+
+    //　Math.random 短縮
+
+    
+
+    $('button').on('click', function(){
+      console.log('ok');
+      console($(this).val());
+      if($(this).val() == 1){
+        const result = generatre(1,10);
+      }else if($(this).val() == 2){
+        const result = generatre(10,20);
+      }else if($(this).val() == 3){
+        const result = generatre(20,100);
+      }
+      $('#echo').text(result);
+    });
+    
+
+
+
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Firebase sample</title>
+</head>
+<body>
+  <h2>Hello,Firebase</h2>
+
+    SampleKey :
+    <input type="text" id="valueInput" placeholder="Message">
+    <input type="button" id="updateButton" value="更新"/>
+
+  <!--Firecbase ここから-->
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAnUYhfBJ7u7Mt_v54MKvHMyQqv8wYw31E",
+    authDomain: "labprotypinga.firebaseapp.com",
+    databaseURL: "https://labprotypinga.firebaseio.com",
+    projectId: "labprotypinga",
+    storageBucket: "labprotypinga.appspot.com",
+    messagingSenderId: "924084589746",
+    appId: "1:924084589746:web:d5edb2a32adf8058aae5ab",
+    measurementId: "G-78VWNT99XQ"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script>
+  let db = firebase.database();
+  let root = db.ref("/");
+  root.on("value", function(snapshot){
+    $('#valueInput').val(snapshot.val().sampleKey);
+  });
+  $('#updateButton').click(function(){
+    root.set({sampleKey:$('#valueInput').val()})
+  });
+</script>
+  
+</body>
+</html>

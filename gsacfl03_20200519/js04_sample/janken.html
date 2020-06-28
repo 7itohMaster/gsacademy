@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/sample.css">
+    <title>じゃんけん</title>
+</head>
+
+<body>
+    <header>
+        <h1>じゃんけん</h1>
+    </header>
+
+    <main>
+        <ul>
+            <li id="gu">グー</li>
+            <li id="cho">チョキ</li>
+            <li id="par">パー</li>
+        </ul>
+        <div id="com_hand">コンピュータの出した手は？</div>
+        <div id="judgment">結果は？</div>
+    </main>
+
+    <footer>フッター</footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+
+            // 関数の定義
+            function janken(myHand) {
+                const computerHand = ['グー', 'チョキ', 'パー']
+                const judgment = ['win', 'lose', 'drow'];
+                let result = {};
+
+                const randomNumber = Math.floor(Math.random() * 3);
+                // 0グー1チョキ2パー
+                if (myHand - randomNumber == 0) {
+                    result = {
+                        computerHand: computerHand[randomNumber],
+                        judgment: judgment[2]
+                    };
+                } else if (myHand - randomNumber == -1 || myHand - randomNumber == 2) {
+                    result = "win";
+                    result = {
+                        computerHand: computerHand[randomNumber],
+                        judgment: judgment[0]
+                    };
+                } else {
+                    result = "lose";
+                    result = {
+                        computerHand: computerHand[randomNumber],
+                        judgment: judgment[1]
+                    };
+
+                }
+                return result;
+            }
+
+            $('#gu').on('click', function () {
+                // 自分の手はグー
+                const result = janken(0);
+                $('#com_hand').text('コンピュータの手：' + result.computerHand);
+                $('#judgment').text('結果：' + result.judgment);
+            });
+
+            $('#cho').on('click', function () {
+                // 自分の手はチョキ
+                const result = janken(1);
+                $('#com_hand').text('コンピュータの手：' + result.computerHand);
+                $('#judgment').text('結果：' + result.judgment);
+            });
+
+            $('#par').on('click', function () {
+                // 自分の手はパー
+                const result = janken(2);
+                $('#com_hand').text('コンピュータの手：' + result.computerHand);
+                $('#judgment').text('結果：' + result.judgment);
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>
