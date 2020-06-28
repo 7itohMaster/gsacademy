@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>位置情報</title>
+</head>
+<body>
+
+  <h1>位置情報</h1>
+
+  <div id="output">
+    <p>now loading...</p>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=' async defer></script>
+
+  <script>
+
+  // 1 現在地を取得
+
+  const set = {
+    enableHighAccuracy: true,
+    maximumAge: 20000,
+    timeout: 10000
+  };
+
+  // 2 現在地の取得に成功した時の関数
+
+  function mapInit(position) {
+    const lat = positon.coords.lattitude;
+    const lng = position.coords.longitude;
+    console.log(lat, lng);
+  }
+
+  // 3 位置情報の取得に失敗したときに実行する関数
+
+  function mapsError(error){
+    let e = "";
+    if(error.code == 1){
+      e = "位置情報が許可されていません";
+    }
+    if(error.code == 2){
+      e = "現在位置を特定できません";
+    }
+    if (error.code == 3){
+      e = "位置情報を取得する前にタイムアウトになりました;"
+    }
+    alert("error:" + e);
+  }
+  
+  // 4 現在地の値を取得OK、地図を表示する。
+
+  function GetMap(){
+    navigator.geolocation.getCurrentPosition(mapsInit, mapsError, set);
+  }
+  </script>
+
+</body>
+</html>
