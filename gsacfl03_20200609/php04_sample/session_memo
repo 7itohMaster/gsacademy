@@ -1,0 +1,35 @@
+// 2020/06/09 PHP
+
+ページ間のデータ共有、管理方法
+ログイン・ログアウトを実装する
+
+今日の重要トピック
+・テーマ：php 認証 $_SESSION
+
+■SESSION
+	・Firebase Authenticationを利用する
+	・フレームワークでログイン
+
+  セッション自体に変数を持たせることができる。
+
+  SESSION_ID
+  ・session_start();  開始必須
+
+
+設計
+
+  STEP_1
+    todo_login.php
+    POST  login/password
+
+  
+
+■Tips
+  SESSION
+  登録->開始、更新、削除
+
+  session_regenerate_id(true);
+  →trueをいれることで、古いクッキーは使用できないようにする。
+
+■
+
