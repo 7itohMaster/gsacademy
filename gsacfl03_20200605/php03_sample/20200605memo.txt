@@ -1,0 +1,15 @@
+// 午前中　2020/6/5
+
+  php mysql = mariaDB
+
+  アテンプト
+  ・CRUD
+  ・効率のよいコード
+
+  // TODAY'S TASK
+  ■更新 : UPDATE
+  ・functionでまとめよう = DB接続処理 Errorチェックも
+    →関数ファイルを作成する。
+
+
+
