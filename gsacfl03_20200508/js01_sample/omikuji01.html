@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>おみくじ練習</title>
+</head>
+
+<body>
+
+  <!-- <button type="button" id="omikuji">おみくじ</button> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <script>
+
+
+      
+      // document.getElementById("#omikuji").onclick = function omikuji(){
+            const max = 0;
+            const min = 4;
+            const kuji = Math.floor(Math.random() * (max - min + 1) + min);
+      
+            if(kuji == 0){
+              alert('大吉！！！！！');
+              console.log(kuji);
+            }
+            else if(kuji == 1){
+              alert('中吉！！！！');
+              console.log(kuji);
+            }
+            else if(kuji == 2){
+              alert('小吉！！！');
+              console.log(kuji);
+            }
+            else if(kuji == 3){
+              alert('末吉！！');
+              console.log(kuji);
+            }
+            else if(kuji == 4){
+              alert('凶！');
+              console.log(kuji);
+            }
+            else{
+              alert('からで〜す');
+              console.log(kuji);
+            }
+    </script>
+
+</body>
+
+</html>
